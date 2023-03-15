@@ -1,0 +1,52 @@
+#entrada
+lista=[]
+#criação da lista que receberá os arquivos 
+for i in range(0,3):
+  arq=input("digite o arquivo que deseja armazenar na lista: ")
+  arquivo=open(arq, "r")
+  #entrada dos arquivos 
+  lista.append(arquivo)
+  #armazenamento dos arquivos na lista
+print("os arquivos estão armazenados na lista: ")
+print(lista)
+#apresentação da lista para o usuário agora com os arquivos, ainda desorganizados
+#processamento 
+#escolha do usuário sobre o método de ordenação que deseja utilizar 
+print("escolha o método de ordenação que deseja utilizar: ")
+print("digite 1 para bubblesort")
+print("digite 2 para insertionsort")
+metord= int(input(" "))
+#utilização do bubble sort para ordenação dos arquivos
+if metord ==1:
+  print("método bubble_sort selecionado")
+  def bubble_sort(lista):
+    for i in range (1,len(lista)):
+      for J in range  (0,2):
+        if(lista[J]>lista[J+1]):
+          Aux = lista[J]
+          lista[J] = lista[J+1]
+          lista[J+1] = Aux;
+          print("arquivos arrumados por ordem a lfabética, seguindo seus nomes")
+          resultadobubble = bubble_sort(lista)
+          print(resultadobubble)  
+#utilização do insertion sort para ordenação dos arquivos  
+else:
+  print("método insertion_sort selecionado")
+  def insertion_sort(lista):
+    for i in range (1,len(lista)):
+        J = i 
+        while J>0 and lista[J-1]>lista[J]:
+             lista[J],lista[J-1]=lista[J-1],lista[J]
+             J-=1
+print("arquivos arrumados por ordem alfabética, seguindo seus nomes")
+resultadoinsertion = insertion_sort(lista)
+print(resultadoinsertion)
+#começo da busca sequencial 
+print("busca sequencial")
+xesco= input("digite o elemento que deseja saber se está na lista ordenada: ")
+def busca_sequencial(lista, xesco):
+  '''(lista, float)'''
+  for i in range (len(lista)):
+    if lista[1]==xesco:
+      return True
+  return False
